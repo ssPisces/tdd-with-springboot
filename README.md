@@ -29,7 +29,21 @@
     AC-5：证件类型：身份证、护照（必填）
     AC-6：证件号码：身份证 18位，护照 14位（必填）
     AC-7：同步成为中国政务服务平台用户 必须
+    AC-8：密码大写、小写、数字组合 （必填）
 
 #### 任务拆分
+#### 需要没要求提示的，不做过分开发
+#### 类名 名词  方法 动词
 - Given 合法的注册信息 When 注册 Then 注册成功
-- Given 
+- Given 必填项为空的 When 注册 Then 注册失败
+- Given 法人类型不在类型范围内 When 注册 Then 注册失败
+- Given 企业全称超长 When 注册 Then 注册失败
+- Given 企业信用代码不符长度 When 注册 Then 注册失败
+- Given 企业信用代码重复 When 注册 Then 注册失败 提示："当前企业已注册"
+- Given 企业信用代码不符合规范 When 注册 Then 注册失败 提示:“统一社会信用代码与企业名称不匹配”
+- Given 法人姓名字符超长 When 注册 Then 注册失败
+- Given 证件类型超出范围 When 注册 Then 注册失败
+- Given 身份证号码位数不符 When 注册 Then 注册失败
+- Given 护照号码位数不符 When 注册 Then 注册失败
+- Given 注册信息同步失败 When 注册 Then 注册失败
+- Given 密码格式不符 When 注册 Then 注册失败
